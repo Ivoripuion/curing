@@ -15,6 +15,10 @@ CLIENT_SRC=cmd/main.go
 # Default target
 .DEFAULT_GOAL := all
 
+# Create build directory
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
 # Build both server and client
 .PHONY: all
 all: $(BUILD_DIR) build-server build-client

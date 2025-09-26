@@ -27,7 +27,8 @@ func TestExecuterWithRealServer(t *testing.T) {
 
 	// Start server
 	testPort := 8089
-	srv := server.NewServer(testPort)
+	testHost := "127.0.0.1"
+	srv := server.NewServer(testHost, testPort)
 	go srv.Run()
 
 	// Give the server time to start
@@ -37,7 +38,7 @@ func TestExecuterWithRealServer(t *testing.T) {
 	cfg := &config.Config{
 		ConnectIntervalSec: 10,
 		Server: config.ServerDetails{
-			Host: "127.0.0.1",
+			Host: testHost,
 			Port: testPort,
 		},
 	}
